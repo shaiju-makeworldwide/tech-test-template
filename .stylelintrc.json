@@ -1,0 +1,80 @@
+{
+  "ignoreFiles": [
+    "node_modules/**/*"
+  ],
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "rules": {
+    "at-rule-no-vendor-prefix": true,
+    "block-opening-brace-space-before": "always",
+    "block-opening-brace-newline-before": "always-single-line",
+    "color-hex-case": "lower",
+    "color-hex-length": "short",
+    "color-no-invalid-hex": true,
+    "declaration-bang-space-before": "always",
+    "declaration-bang-space-after": "never",
+    "declaration-block-no-duplicate-properties": [
+      true,
+      {
+        "ignore": ["consecutive-duplicates-with-different-values"]
+      }
+    ],
+    "declaration-block-semicolon-newline-after": "always-multi-line",
+    "declaration-block-trailing-semicolon": "always",
+    "declaration-colon-space-before": "never",
+    "declaration-no-important": true,
+    "declaration-property-value-blacklist": { "/^border/": ["none"] },
+    "function-comma-space-after": "always-single-line",
+    "function-parentheses-space-inside": "never-single-line",
+    "function-url-quotes": "always",
+    "indentation": [
+      2,
+      {
+        "ignore": [
+          "inside-parens",
+          "param",
+          "value"
+        ]
+      }
+    ],
+    "length-zero-no-unit": true,
+    "max-nesting-depth": [
+      3,
+      {
+        "ignore": [
+          "blockless-at-rules"
+        ]
+      }
+    ],
+    "media-feature-name-no-vendor-prefix": true,
+    "no-duplicate-selectors": true,
+    "no-eol-whitespace": true,
+    "no-missing-end-of-source-newline": true,
+    "number-no-trailing-zeros": true,
+    "number-leading-zero": "never",
+    "rule-empty-line-before": [
+      "always",
+      {
+        "ignore": [
+          "after-comment",
+          "inside-block"
+        ]
+      }
+    ],
+    "selector-max-id": 0,
+    "scss/at-import-no-partial-leading-underscore": true,
+    "scss/selector-no-redundant-nesting-selector": true,
+    "selector-no-vendor-prefix": true,
+    "selector-no-qualifying-type": [
+      true,
+      {
+        "ignore": ["attribute", "class", "id"]
+      }
+    ],
+    "shorthand-property-no-redundant-values": true,
+    "string-quotes": "single",
+    "unit-no-unknown": true,
+    "value-no-vendor-prefix": true
+  }
+}

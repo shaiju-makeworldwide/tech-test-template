@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+require 'pathname'
+path = Pathname.new(__dir__ + '/..').realpath
+Dir.chdir(path)
+
+# Available linters
+linters = {
+    css: {
+        command: './node_modules/.bin/stylelint app/assets/stylesheets app/**.css',
+        options: '--config .stylelintrc.json --color'
+    },
+    ruby: {
+        command: 'bundle exec rubocop app',
+        options: '--format simple --color'
+    },
+    # js: {
+    #     command: "./node_modules/.bin/eslint",
+    #     options: '--color "app/assets/javascripts/**/*.{js}"'
+    # }
+}
+
+# Enable linters from arguments
+enabled_linters = ARGV.map{ |o| o.gsub('-', '').to_sym }
+                      .map{ |o| linters[o] ? o : nil }
+                      .select{ |o| o != nil }
+
+# If no linters are selected in ARGV, use all
+enabled_linters = linters.keys if enabled_linters.empty?
+
+# Run the linters
+enabled_linters.each do |language|
+  puts "#{language}:"
+  command = linters[language][:command]
+  options = linters[language][:options]
+
+  result = `#{command} #{options} | sed 's/^/  /'`
+  if result.length == 0 || result.match(/no offenses/)
+    puts "  \e[32mNo errors / warnings\e[0m"
+  else
+    puts result
+  end
+end
