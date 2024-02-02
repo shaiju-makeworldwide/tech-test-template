@@ -1,0 +1,10 @@
+tr
+  td= vehicle.customer.name
+  td= vehicle.customer.nationality.name
+  td= vehicle.customer.email
+  td= vehicle.name
+  td= vehicle.year
+  td= vehicle.chassis_number
+  td= vehicle.color
+  td= vehicle.registered_at&.strftime('%d/%m/%Y')
+  td= vehicle.odometer

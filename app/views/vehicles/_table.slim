@@ -1,0 +1,18 @@
+table.table.b-table.table-hover
+  thead.thead-light
+    tr
+      th Customer
+      th Nationality
+      th Email
+      th Model
+      th Year
+      th Chassis no
+      th Color
+      th Registration date
+      th Odometer
+  tbody
+  - @vehicles.find_each do |vehicle|
+    = render vehicle
+  - if @vehicles.empty?
+    tr
+      td( colspan="9" ) There are no customers yet.
