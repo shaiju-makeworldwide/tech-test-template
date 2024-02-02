@@ -1,0 +1,20 @@
+.row.mb-3
+  .col-md-5
+    = form_with(class: 'form-inline', url: { action: :search }, multipart: true) do
+      .form-group.mr-3
+        = text_field_tag 'query', params[:query], class: 'form-control'
+      .form-group
+        = submit_tag 'Search', class: 'btn btn-primary'
+  .col-md-2
+    a.btn.btn-primary( href='/report.csv' download=true ) Download report
+
+  .col-md-5
+    = form_with(class: 'form-inline', url: { action: :import }, multipart: true) do
+      .form-group
+        .custom-file.mr-3
+          = file_field_tag 'csv_file', class: 'custom-file-input', accept: ".csv"
+          = label_tag 'csv_file', 'Choose file', class: 'custom-file-label'
+      .form-group
+        = submit_tag 'Import data', class: 'btn btn-primary'
+
+= render 'table'
